@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "QR Code",
+  "version": "1.0",
+  "description": "Adds a button to the address bar to get the current url as a qr code",
+  "icons": {
+		"48": "icon.svg",
+		"96": "icon.svg"
+	},
+	"permissions":["activeTab"],
+	"page_action": {
+		"show_matches": ["<all_urls>"],
+		"browser_style": true,
+		"default_icon": "icon.svg",
+		"default_title": "QR Code",
+		"default_popup": "popup.html"
+	}
+}
