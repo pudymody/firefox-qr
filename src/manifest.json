@@ -7,7 +7,7 @@
 		"48": "icon.svg",
 		"96": "icon.svg"
 	},
-	"permissions":["activeTab", "downloads"],
+	"permissions":["activeTab"],
 	"page_action": {
 		"show_matches": ["<all_urls>"],
 		"browser_style": true,

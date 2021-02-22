@@ -66,8 +66,7 @@
 			outline: none;
 		}
 
-		button {
-			appearance: none;
+		.save {
 			border: 1px solid var(--in-content-box-border-color);
 			border-radius: 2px;
 			color: inherit;
@@ -75,11 +74,12 @@
 			font-family: inherit;
 			font-size: inherit;
 			text-align: center;
+			text-decoration: none;
 			padding: 5px 8px;
 			margin: 1rem;
 		}
 
-		button:hover {
+		.save:hover {
 			border-color: var(--in-content-border-hover);
 		}
 	</style>
@@ -87,7 +87,7 @@
 <body>
 	<div class="qr"></div>
 	<input type="text" placeholder="QR Text"/>
-	<button>Save</button>
+	<a class="save" download="qr.svg">Save</a>
 	<script src="qrcode.min.js"></script>
 	<script src="app.js"></script>
 </body>
