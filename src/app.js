@@ -1,5 +1,6 @@
 const $text = document.querySelector("input");
 const $qr = document.querySelector(".qr");
+const $button = document.querySelector("button");
 
 function drawQr(text){
 	let fg = "#2a2a2e";
@@ -31,6 +32,15 @@ browser.tabs.query({currentWindow: true, active: true})
 		$text.select();
 		drawQr(url);
 	}, console.log);
+
+$button.addEventListener("click", function(e) {
+	const blob = new Blob([$qr.innerHTML], { type: "image/svg+xml" });
+	const objectURL = URL.createObjectURL(blob);
+	browser.downloads.download({
+		url : objectURL,
+		filename : 'qr.svg'
+	});
+});
 
 $text.addEventListener("input", function(e){
 	drawQr(this.value);
