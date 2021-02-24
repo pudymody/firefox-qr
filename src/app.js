@@ -1,5 +1,6 @@
 const $text = document.querySelector("input");
 const $qr = document.querySelector(".qr");
+const $save = document.querySelector(".save");
 
 function drawQr(text){
 	let fg = "#2a2a2e";
@@ -22,6 +23,7 @@ function drawQr(text){
 	}).svg();
 
 	$qr.innerHTML = qr;
+	$save.href = "data:image/svg+xml;base64," + btoa(qr);
 }
 
 browser.tabs.query({currentWindow: true, active: true})
