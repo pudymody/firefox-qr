@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "QR Code",
-  "version": "1.0",
+  "version": "1.2",
   "description": "Adds a button to the address bar to get the current url as a qr code",
   "icons": {
 		"48": "icon.svg",
