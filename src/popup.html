@@ -14,7 +14,11 @@
 		}
 
 		.qr {
-			margin: 1rem 1rem 0 1rem;
+			margin: 1rem;
+		}
+
+		.qr_wrapper {
+			background: #fff;
 		}
 
 		svg {
@@ -85,7 +89,7 @@
 	</style>
 </head>
 <body>
-	<div class="qr"></div>
+	<div class="qr_wrapper"><div class="qr"></div></div>
 	<input type="text" placeholder="QR Text"/>
 	<a class="save" download="qr.svg">Save</a>
 	<script src="qrcode.min.js"></script>
