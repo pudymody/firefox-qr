@@ -70,7 +70,7 @@
 			outline-offset: -1px;
 		}
 
-		.save {
+		.actions a {
 			border: 1px solid transparent;
 			border-radius: var(--in-content-button-border-radius);
 			background-color: var(--in-content-primary-button-background);
@@ -80,25 +80,35 @@
 			text-align: center;
 			text-decoration: none;
 			padding: var(--in-content-button-vertical-padding) var(--in-content-button-horizontal-padding);
-			margin: 1rem;
 		}
 
-		.save:hover {
+		.actions a:hover {
 			background-color: var(--in-content-primary-button-background-hover);
 			color: var(--in-content-primary-button-text-color-hover);
 		}
 
-		.save:focus-visible {
+		.actions a:focus-visible {
 			box-shadow: none;
 			outline: 2px solid var(--in-content-focus-outline-color);
 			outline-offset: 2px;
+		}
+
+		.actions {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1rem;
+			padding: 0 1rem;
+			margin: 1rem 0;
 		}
 	</style>
 </head>
 <body>
 	<div class="qr_wrapper"><div class="qr"></div></div>
 	<input type="text" placeholder="QR Text"/>
-	<a class="save" download="qr.svg">Save</a>
+	<div class="actions">
+		<a download="qr.svg">SVG</a>
+		<a download="qr.png">PNG</a>
+	</div>
 	<script src="qrcode.min.js"></script>
 	<script src="app.js"></script>
 </body>
