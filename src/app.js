@@ -16,7 +16,7 @@ function drawQr(text){
 		xmlDeclaration: false,
 		container: "g",
 		width: SIZE,
-		height: SIZE 
+		height: SIZE
 	}).svg();
 
 	const qr_svg = `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 800 800">${qr}</svg>`
@@ -34,17 +34,27 @@ function drawQr(text){
 
 		const $ctx = $canvas.getContext("2d");
 		$ctx.drawImage(this, 0, 0);
-		$exports[1].href = $canvas.toDataURL(); 
+		$exports[1].href = $canvas.toDataURL();
 	});
 
 }
 
-browser.tabs.query({currentWindow: true, active: true})
-	.then(function onGot(tabInfo){
-		const url = tabInfo[0].url;
-		$text.value = url;
-		drawQr(url);
-	}, console.log);
+const query = new URLSearchParams(window.location.search);
+if (query.has("qr")) {
+    $text.value = query.get("qr");
+    drawQr(query.get("qr"));
+    browser.pageAction.setPopup({
+        tabId: parseInt(query.get("tabId")),
+        popup: null
+    });
+} else {
+    browser.tabs.query({currentWindow: true, active: true})
+        .then(function onGot(tabInfo){
+            const url = tabInfo[0].url;
+            $text.value = url;
+            drawQr(url);
+        }, console.log);
+}
 
 $text.addEventListener("input", function(e){
 	drawQr(this.value);
